@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data collection, data types</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Goran Kardum" />
+    <meta name="date" content="2021-10-28" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Data collection, data types
+## ⚔<br/>with xaringan
+### Goran Kardum
+### Department of Psychology
+### 2021-10-28
+
+---
+
+
+
+```
+## Loading required namespace: bibtex
+```
+
+
+
+# Important terms, definitions... from the last lecture
+
+- Data collection 
+
+--
+
+- Quantitative variable
+
+--
+
+- Qualitative variable
+
+--
+
+- Discrete vs continuous
+
+--
+
+- Scales of measurement (is a concept for distinguishing between different types of variables)
+
+---
+## Scales of measurement
+
+- Nominal scale
+
+--
+
+- Ordinal scale
+
+--
+
+- Interval scale
+
+--
+
+- Ratio scale
+
+---
+# Type of variables according to models in research
+
+- Do not confuse with dependent and independent research measure design
+
+--
+
+- Independent variable
+
+--
+
+- Dependent variable
+
+---
+# R structure
+
+<div id="htmlwidget-2d405b52de08044f7883" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2d405b52de08044f7883">{"x":{"diagram":"digraph flowchart {\n       # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"R structure\"]\n      tab2 [label = \"Data type\"]\n      tab3 [label = \"Data structure\"]\n      \n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab1 -> tab3;\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+# R data types
+
+R atomic data types:
+
+--
+
+character (characters and strings; "a", "name"...)
+
+--
+
+numeric (real or decimal; 2, 3, 7, 8.15)
+
+--
+
+integer (explicitly integer; 8L, 148L)
+
+--
+
+logical (boolean values; true/false)
+
+--
+
+complex (real + complex value: 5+7i)
+
+--
+
+raw (any type store as raw bytes)
+
+
+---
+# R data structures
+
+R objects:
+
+--
+
+atomic vector
+
+--
+
+list
+
+--
+
+matrix
+
+--
+
+array
+
+--
+
+data frame
+
+--
+
+factors
+
+---
+# R functions
+
+R language have several important functions for objects or vectors:
+
+--
+
+class() - what kind of object is it (high-level)?
+
+--
+
+typeof() - what is the object’s data type (low-level)?
+
+--
+
+length() - how long is it? What about two dimensional objects?
+
+--
+
+attributes() - does it have any metadata?
+
+---
+# Examples
+
+
+```r
+a &lt;- "abcdefgh"
+typeof(a)
+```
+
+```
+## [1] "character"
+```
+
+
+```r
+i &lt;- 1:20
+typeof(i)
+```
+
+```
+## [1] "integer"
+```
+
+```r
+i
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+```
+
+
+```r
+x &lt;- c("a", "b", "c")
+typeof(x)
+```
+
+```
+## [1] "character"
+```
+
+---
+# Vectors
+
+The most important family of data types in base R.
+
+--
+
+<div id="htmlwidget-d7b44116d70fb244f6df" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d7b44116d70fb244f6df">{"x":{"diagram":"digraph flowchart {\n       # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Vector\"]\n      tab2 [label = \"Atomic\"]\n      tab3 [label = \"List\"]\n       \n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab1 -> tab3;\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+---
+# Vectors
+
+- Atomic vectors: all elements must have the same type
+
+--
+
+- List can have the different type of elements
+
+---
+## Atomic vectors
+
+There are four type of atomic vectors:
+
+--
+
+- logical
+
+--
+
+- integer
+
+--
+
+- double
+
+--
+
+- character, strings
+
+--
+
+- Numeric are: integer and double
+
+---
+## Character, string
+
+
+```r
+months &lt;- c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+
+months
+```
+
+```
+##  [1] "January"   "February"  "March"     "April"     "May"       "June"      "July"      "August"   
+##  [9] "September" "October"   "November"  "December"
+```
+
+--
+
+- It's possible to access the exact position
+
+--
+
+
+```r
+months[7]
+```
+
+```
+## [1] "July"
+```
+
+--
+
+- The number of letters in values (strings) of variables
+
+--
+
+
+```r
+nchar(x=months)
+```
+
+```
+##  [1] 7 8 5 5 3 4 4 6 9 7 8 8
+```
+
+
+---
+## Names in vectors
+
+Three ways to name vector
+
+--
+
+
+```r
+# when we create a vector
+i &lt;- c(a = 1, b = 2, c = 3, d = 4)
+
+# assigning a character vector to names 
+
+i &lt;- 1:4
+names(i) &lt;- c("a", "b", "c", "d")
+
+# with setNames function
+i &lt;- setNames(1:4, c("a", "b", "c", "d"))
+```
+
+---
+## Matrix and array
+
+When we use dim attributes that allows to have 2-dimensional **matrix** or multi-dimensional **array**.
+
+--
+
+
+```r
+ex_matrix &lt;- matrix(1:8, nrow = 2, ncol = 4)
+ex_matrix
+```
+
+```
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    3    5    7
+## [2,]    2    4    6    8
+```
+
+---
+## Array
+
+
+```r
+ex_array &lt;- array(1:16, c(2, 4, 2))
+ex_array
+```
+
+```
+## , , 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    3    5    7
+## [2,]    2    4    6    8
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    9   11   13   15
+## [2,]   10   12   14   16
+```
+
+---
+## Factors
+
+A factor is a vector that can contain only predefined values (Wickham, 2019).
+
+--
+
+- it is used to store categorical data
+
+--
+
+
+```r
+s &lt;- factor(c("a","d","f","g"))
+s
+```
+
+```
+## [1] a d f g
+## Levels: a d f g
+```
+
+--
+
+- ordered factors are a minor variation of factor
+
+
+```r
+# ordered factors
+sch_grade &lt;- ordered(c("d", "d", "b", "c"), levels = c("d", "c", "b"))
+sch_grade
+```
+
+```
+## [1] d d b c
+## Levels: d &lt; c &lt; b
+```
+
+---
+## Lists
+
+Lists are complex than atomic vectors because that each element can be any type. They could store character, string, number....
+
+--
+
+
+```r
+list1 &lt;- list(1:3, "x", c(TRUE, TRUE, FALSE), c(7.8, 8.9))
+list1
+```
+
+```
+## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] "x"
+## 
+## [[3]]
+## [1]  TRUE  TRUE FALSE
+## 
+## [[4]]
+## [1] 7.8 8.9
+```
+
+--
+
+Data frames are specific type of list
+
+
+---
+## Data frames
+
+It's collection of variables and one type of the list.
+
+--
+
+Before - only variables in workspace / Environment (RStudio)
+
+-- 
+
+For an example...
+
+
+```r
+gender &lt;- factor(c(1,2,2,2,1))
+levels(gender) &lt;- c("male","female")
+
+group &lt;- c(1,2,1,2,1)
+levels(group) &lt;- c("control","experimental")
+
+age &lt;- c(21,24,23,27,31)
+```
+
+--
+
+That variables exists only as separate variables in R workspace... until...
+---
+## Data frames
+
+Now we combine variables into **data.frame**
+
+--
+
+
+```r
+df_example &lt;- data.frame (gender,group,age)
+df_example
+```
+
+```
+##   gender group age
+## 1   male     1  21
+## 2 female     2  24
+## 3 female     1  23
+## 4 female     2  27
+## 5   male     1  31
+```
+
+
+---
+
+## Tibbles
+
+Tibble is part of **tidyverse** package and that is the second type of list.
+
+--
+
+a modern reimagining of the data frame (Wickham, 2021)
+
+--
+
+There are two main differences in the usage of a **tibble** vs. a classic **data.frame**: printing and subsetting (Wickham, Grolemund 2017).
+
+--
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ─────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+```
+
+```
+## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.0     ✓ forcats 0.5.1
+```
+
+```
+## ── Conflicts ────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
+```r
+# create example of data frame
+data_df &lt;- data.frame(a = 1:3, b = letters[1:3], c = Sys.Date() - 1:3)
+data_df
+```
+
+```
+##   a b          c
+## 1 1 a 2021-10-27
+## 2 2 b 2021-10-26
+## 3 3 c 2021-10-25
+```
+
+--
+
+
+```r
+# create example of tibbles
+as_tibble(data_df)
+```
+
+```
+## # A tibble: 3 × 3
+##       a b     c         
+##   &lt;int&gt; &lt;chr&gt; &lt;date&gt;    
+## 1     1 a     2021-10-27
+## 2     2 b     2021-10-26
+## 3     3 c     2021-10-25
+```
+
+---
+## Tibbles
+
+![Data entry](pic/tidy.png)
+---
+## One more object in the R
+
+Formulas 
+
+--
+
+Functions
+
+  - generic functions (e.g. summary(), plot())
+  
+--
+
+  - function within some library
+
+---
+## Introduction to descriptive statistics
+
+- distribution of the data (vectors, factors)
+
+--
+
+- normal distributian (Gaussian distribution)
+
+--
+
+- sampling (sample size - N)
+
+---
+# References
+
+
+
+```
+## You haven't cited any references in this bibliography yet.
+```
+
+NULL
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

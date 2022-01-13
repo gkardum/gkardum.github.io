@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Descriptive statistics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Goran Kardum" />
+    <meta name="date" content="2021-10-25" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Descriptive statistics
+## ⚔<br/>with xaringan
+### Goran Kardum
+### Department of Psychology
+### 2021-10-25
+
+---
+
+
+
+```
+## Loading required namespace: bibtex
+```
+
+# Descriptive statistics
+
+The aim of calculating descriptive statistics is to summarize the sample you have collected (Cox, 2017)
+
+--
+
+- The main characteristics that are of interest when dealing with continuous data are the shape (distribution), the location, statistics (central tendency and variability) and the spread (dispersion) of the data.
+
+--
+
+- Appropriate presenting the results of descriptive statistics (table, figures)
+
+--
+
+- Descriptive statistics aim to summarize a sample, rather than use the data to learn about the population
+
+--
+
+- Descriptive statistics are not developed on the basis of probability theory
+
+---
+# Descriptive statistics
+
+- Choosing which summary statistics are appropriate depend on the type of variable being examined.  
+
+--
+
+- Different statistics should be used for interval/ratio, ordinal, and nominal data. 
+
+---
+# Mean
+
+- In statistics, the term average refers to any of the measures of central tendency! 
+
+--
+
+- Psychologists are often interested in looking at how data points tend to group around a central value. 
+
+--
+
+- The arithmetic mean of a set of observed data is defined as being equal to the sum of the numerical values of each and every observation, divided by the total number of observations. 
+
+--
+
+- It is greatly influenced by **outliers** (values that are very much larger or smaller than most of the values)
+
+---
+# Mean (Navarro, 2015)
+
+- If your data are nominal scale, you probably shouldn’t be using either the mean or the median.
+
+--
+
+- If your data are ordinal scale, you’re more likely to want to use the median than the mean.
+
+--
+
+- For interval and ratio scale data, either one is generally acceptable
+
+---
+## Mean 
+
+- It is not appropriate for skewed distributions. In probability theory and statistics, **skewness** is a measure of the asymmetry of the distribution.
+
+--
+
+- It is appropriate for larger number of observations (N&gt;20 or N&gt;30)
+
+--
+
+- Arithmetic mean for ungrouped data and arithmetic mean for grouped data
+
+---
+# Formula for mean
+
+- Mean x̄ = Sum of all observations / Number of observations
+
+--
+
+$$ \bar{x} = \frac{1}{N}\sum_{i=1}^{N} x_i  $$
+
+---
+# How mean is the mean?
+
+- The most common form of the mean that is used in psychology is the arithmetic mean. 
+
+--
+
+- In a linear world, averages make perfect sense.
+
+--
+
+- The uncritical or unreflective use of the mean in much psychological research makes us problematically blind to variation and distribution amongst the data we collect (Speelman, McGann, 2013). 
+
+--
+
+- Alternative model: Psychology are used to explore methods of research less mean-dependent and suggest that a critical assessment of the assumptions underlying its use in research play a more explicit role in the process of study design and review.
+
+---
+## Assumptions underlying the use of the mean in psychology research (Speelman, McGann, 2013)
+
+- Assumption 1: There is a **True Value** that we are Trying to Approximate When we Measure Humans on Some Dimension
+
+--
+
+- Assumption 2: Averaging Helps us to Eliminate the Noise in Our Measures to See the True Value
+
+--
+
+- Assumption 3: Any Inability to Use the Mean as a Reliable Measure of a Stable Characteristic is a Product of Weaknesses in Methodology or Calculation (i.e., it does not Represent a Failure in the Initial Assumption that a True Value Exists)
+
+--
+
+- Assumption 4: The Noise in Our Measurements Represents the Effects of Variables Unrelated to the One Being Measured
+
+---
+# Median
+
+- the median is the value separating the higher half from the lower half of a data sample, a population, or a probability distribution
+
+--
+
+- The Median is the **middle** of a sorted list of numbers.
+
+--
+
+- it is not dependent/affected of extreme values
+
+--
+
+- appropriate for lower number of observation
+
+--
+
+- appropriate when we could not use arithmetic mean
+
+---
+# Median - example
+
+
+```r
+sample_x &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+median(sample_x)
+```
+
+```
+## [1] 5
+```
+
+--
+
+
+```r
+sample_xy &lt;- c(sample_x, 10)
+sample_xy
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+median(sample_xy)
+```
+
+```
+## [1] 5.5
+```
+
+
+---
+# Mode
+
+The mode of a sample is very simple: it is the value that occurs most frequently.
+
+--
+
+- appropriate for variable on nominal scale
+
+--
+
+- in some cases, examples and real life situation we would like to calculate on ordinal, interval and ratio scale
+
+--
+
+- usage on frequency - in tables
+
+---
+# Comparison of means
+
+![Comparison of means](pic/dc2.png)
+---
+## Practical usage in table
+
+
+```r
+library(psych)
+library(kableExtra)
+good_tbl &lt;- describe(sat.act)
+kable(good_tbl)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; vars &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; n &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mean &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sd &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; median &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; trimmed &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mad &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; min &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; max &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; range &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; skew &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; kurtosis &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; se &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; gender &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.647143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4782004 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.683929 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6145233 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.6246760 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0180743 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; education &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.164286 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4253515 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.307143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4826 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6807999 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0748912 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0538732 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; age &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.594286 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.4986466 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.862500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.9304 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 65 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.6430573 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.4243053 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3590151 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ACT &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28.547143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.8235599 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28.842857 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.4478 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 36 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6564026 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5349691 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1823134 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SATV &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 612.234286 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 112.9025659 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 620 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 619.453571 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 118.6080 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 200 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 800 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 600 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6438111 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3251946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.2673159 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SATQ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 687 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 610.216885 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 115.6392972 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 620 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 617.254083 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 118.6080 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 200 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 800 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 600 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.5929212 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0177603 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.4119144 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+- draw example of hist function
+
+
+---
+# Standard deviation
+
+- The standard deviation is a measure of variation which is commonly used with interval/ratio data
+
+--
+
+It’s a measurement of how close the observations in the data set are to the mean.
+
+--
+
+- If the deviations from the mean are generally large, the standard deviation will be large.
+
+--
+
+- Population mean is often represented with the letter mu $$ {\mu} $$, and the population standard deviation is represented with the letter sigma $$ {\sigma} $$
+
+--
+
+- The value of SD = 7.5. Is it small or large? Depends of mean value.
+
+--
+
+- Standard deviation may not be appropriate for skewed data (This is the reason among the others that we must first draw the figure - distribution of data.
+
+-- 
+## Formula for SD
+
+
+`$$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}}$$`
+
+---
+# Example
+
+Create variable with some data
+
+--
+
+
+```r
+data &lt;- c(5.56, 3.45, 4.55, 6.2, 4.8, 6.8, 7.2, 8.3, 3.2, 7.7, 6.9, 4.1, 8.3, 7.5, 7.7, 4.3, 3.8, 2.8, 3.2, 8.9)
+mean(data)
+```
+
+```
+## [1] 5.763
+```
+
+```r
+median(data)
+```
+
+```
+## [1] 5.88
+```
+
+```r
+library(psych)
+datas_1&lt;- rnorm(20, mean = 5.7, sd = 2)
+SD(data)
+```
+
+```
+## [1] 2.004275
+```
+
+```r
+median(datas_1)
+```
+
+```
+## [1] 5.744962
+```
+
+
+---
+# References
+
+
+
+```
+## You haven't cited any references in this bibliography yet.
+```
+
+NULL
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
