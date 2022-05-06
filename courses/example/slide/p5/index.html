@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Chi square</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Goran Kardum" />
+    <meta name="date" content="2022-04-01" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link rel="stylesheet" href="mckpam.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Chi square
+## ⚔<br/>with xaringan
+### Goran Kardum
+### Department of Psychology
+### 2022-04-01
+
+---
+
+
+
+# Chi square - general consideration
+
+Non-parametric statistical test
+
+--
+
+to test difference or association that allows the researchers if their results are significant
+
+--
+
+frequencies on certain categories or event that occured  
+
+--
+
+**observed** frequencies vs. **exptected** frequencies
+
+--
+
+A Chi-square test is a hypothesis testing method. 
+
+--
+
+Two common Chi-square tests involve checking if observed frequencies in one or more categories match expected frequencies.
+
+---
+# Chi-square
+
+- Chi-square of independence 
+
+--
+
+- GOF - Goodness of Fit Test / Hypothesis test 
+
+--
+
+- Chi-square of dependence / McNemar test
+
+---
+# Equation
+
+Chi square formula: 
+
+\begin{equation}
+\chi^2=\sum\frac{(f\substack{o} - f\substack{t})^2}{f\substack{t}}
+\end{equation}
+
+--
+
+- Expected frequencies = Ef = N x Pi
+
+--
+
+- we’re going to need a large X2 statistic in order to reject the null.
+
+--
+
+- When we think about chi-square .... please, do not forget about theoretical distribution behind: Binomial distribution!
+
+---
+# Binomial distribution
+
+
+A probability distribution is a mathematical distribution of scores where we know the probabilities associated with the occurrence of every score in the distribution. We know what the probability is of randomly selecting a particular score or set of scores from the distribution (Dancey, 2020).
+
+--
+
+The binomial distribution is a discrete probability distribution
+
+--
+
+Probability distribution that represents the probabilities of binomial random variables in binomial experiment
+
+---
+
+## Example of binomial distribution
+
+- Let's imagine an experiment with 10 identical six-sided dice. On one face of each there's a letter A. Other dice face are empty. If we proceed to roll 10 dice what would be the probability to get 2 with letter A?
+
+--
+
+- **N** denote the number of dice rolls in our experiment. In R that is parameter **size**
+
+--
+
+- **x** a vector that specifying the outcomes whose probability we a trying to calculate
+
+--
+
+- **prob** success probability for any one trial in the experiment
+
+
+
+---
+## How to perform a Chi-square test
+
+Define the null and alternative hypothesis
+
+--
+
+Check the assumptions for the chi square test.
+
+--
+
+Perform the test and interpretation of results
+
+--
+
+Draw conclusions 
+
+
+---
+## Assumptions for the chi square test
+
+- variables on nominal scale... 
+
+--
+
+- if not than must be recode into cathegories...
+
+--
+
+- calculation could be done only with frequencies
+
+--
+
+- interpretation have limitation according to numbers in each cell (contigency table)
+ 
+
+---
+## Chi-Square Goodness of Fit Test
+
+- The χ2 goodness-of-fit test is one of the oldest hypothesis tests in statistical inference (Pearson, 1900). Ronald Fisher made some corrections later arround 1922.
+
+--
+
+- to compare an observed frequency-distribution to a theoretical frequency-distribution
+
+--
+
+- **G test**, binomial i multinomial test
+
+--
+
+- example:  forms of transport were preferred (car, bike, bus, motorcycle, electric)
+
+--
+
+- example: clubs (♣), diamonds (♦), hearts (♥) and spades (♠)
+
+--
+
+- example: Are the schools equally popular? Or do some schools attract more applications than others?
+
+--
+
+- example: driving accidents during 7 days. To test hypothesis that driving accidents are independent of days. Driving accidence occurs randomly and each day have the same probability
+
+
+---
+# Effect size
+
+- We must write in some contemporary research or we want to report of effect size
+
+--
+
+- There are three measures of effect size for chi-squared test; Phi (φ), Cramer's V (V), and odds ratio (OR).
+
+--
+
+- How strong is association / independence / deviation?
+
+--
+
+- two measure: φ statistic or more superior Cramer’s V
+
+--
+
+- esc package: function esc_chisq(): Compute effect size from Chi-Square coefficient
+
+--
+
+- esc_chisq(chisq, p, totaln, es.type = c("d", "g", "or", "logit", "r", "f", "eta", "cox.or", "cox.log"), study = NULL)
+
+---
+# Effect size - 
+
+- quantitative measure of the magnitude of the experimental effect. 
+
+--
+
+- The larger the effect size means the stronger the relationship between two variables.
+
+--
+
+- we might want to know the effect of a psychotherapy on treating anxiety. The effect size value will show us if the therapy  had a small, medium or large effect on anxiety.
+
+--
+
+- The p-value is not enough in context of results interpretation (Power and effect size would be separate lecture)
+
+
+---
+# Effect size for different tests and degree of freedom (Cohen, 1988)
+
+
+
+![Effect size](pic/effect_size.png)
+
+
+
+---
+# Phi Coefficient
+
+- a method for determining the strength of association. The phi coefficient was first reported by Yule (1912).
+
+--
+
+- for variables at the binary categorical level only
+
+--
+
+- Phi Coefficient is derived from Pearson’s Chi-Square statistic
+
+--
+
+- The Phi Coefficient test whether the difference from zero-association
+
+--
+
+- The phi-coefficient is particularly used in psychological and educational testing 
+
+--
+
+- Binary variables! In many prediction situations, a dichotomous predictor (accept/reject) is validated against a dichotomous criterion (success/failure). 
+
+--
+
+- must be independence of observations: no relationship
+between the groups or between the observations in each group.
+
+---
+# Phi Coefficient equation
+
+\begin{equation}
+\phi=\frac{(ad - bc)^2}{\sqrt{efgh}}
+\end{equation}
+
+--
+
+- example: try to find out association between whether respondent has a pet and whether respondent has a child (Welsch Health Survey - Teaching Dataset, 2009)
+
+--
+
+- A total of 30 respondent has a pet and 70 not. The same ratio correspondent to the second variable: Whether respondent has a child: where 30 have a child and 70 not. 20 of them have a child and pet, 10 pet but not child, 10 with child and without pet, and 60 without child and pet. Simulate this with matrix() function in R.
+
+--
+
+
+```r
+child_pet &lt;- matrix(c(20,10,10,60),ncol=2)
+library(psych)
+phi(child_pet)
+```
+
+```
+## [1] 0.52
+```
+
+
+---
+# Phi and Chi?
+
+- The significance of Phi may be tested by determining the value of Chi
+
+--
+
+\begin{equation}
+\phi^2=\frac{\chi^2}{N}
+\end{equation}
+
+--
+
+- This may then be tested against the relevant value of χ2 for 1
+degree of freedom.
+
+
+---
+# Phi coefficient interpretation
+
+- We can interpret Phi coefficient using the similar scale as that for Pearson’s Correlation coefficient.
+
+--
+
+- -0.19 - 0 - 0.199: no association or negligible, insignificant association
+
+--
+
+- -0.2 to -0.39 or 0.2 to 0.39: weak negative or positive association
+
+--
+
+- -0.4 to -0.69 or 0.4 to 0.69: medium positive association between variables
+
+--
+
+- -0.7 to -1 or 0.7 to 1: strong negative or strong positive association
+
+---
+# Cramer's V test
+
+- Cramer’s V is a statistic that ranges from 0 to 1 
+
+--
+
+- used to assess the strength of the relationship between two nominal variables
+
+--
+
+- effect size for a chi-square test of association
+
+--
+
+- closer values near 0 suggest a weak relationship whereas while closer values to 1 indicate a strong relationship
+
+--
+
+\begin{equation}\label{Cramer's V}
+V=\sqrt{\frac{\chi^2}{min(c-1,r-1)}}
+\end{equation}
+
+--
+
+- X2: Chi-square statistic, n: Total sample size, r: Number of rows, c: Number of columns
+
+
+---
+# Fisher exact test
+
+- Fisher’s exact test is proposed by Ronald A. Fisher in 1934.
+
+--
+
+- Non-parametric method: to determine whether or not here is a significant association between two categorical variable
+
+--
+
+- chi-square of independence when one or more of the cell counts in 2x2 table is less than 5
+
+--
+
+-  Fisher's exact test is valid for all sample sizes. Chi-squared test relies on an approximation whereas Fisher's exact test is one of exact tests. 
+
+--
+
+- Chi-square test is not appropriate when the expected values in one of the cells of the contingency table is less than 5
+
+--
+
+- Ho - the two variables are independent. There is no relationship between the two categorical variables and knowing the value of one variable does not help to predict the value of the other variable.
+
+--
+
+- H1 - the two variables are not independent or the variables are dependent because there is a relationship between the two categorical variables and knowing the value of one variable helps to predict the value of the other variable
+
+---
+# Example - Fisher exact test
+
+- Example: We want to determine whether there is a statistically significant association between smoking and gender on sample of students. The two variables are qualitative and we collected data on 18 persons.
+
+
+
+```r
+smoke_dat &lt;- data.frame(
+  "no_smoke" = c(6, 4),
+  "yes_smoke" = c(4, 4),
+  row.names = c("Female", "Male"),
+  stringsAsFactors = FALSE
+)
+colnames(smoke_dat) &lt;- c("Non-smoker", "Smoker")
+
+smoke_dat
+
+chisq.test(smoke_dat)$expected
+```
+
+---
+# Run previos R code
+
+
+
+```
+##        Non-smoker Smoker
+## Female          6      4
+## Male            4      4
+```
+
+```
+## Warning in chisq.test(smoke_dat): Chi-squared approximation may be incorrect
+```
+
+```
+##        Non-smoker   Smoker
+## Female   5.555556 4.444444
+## Male     4.444444 3.555556
+```
+
+---
+# After that we must perform Fisher exact test
+
+
+```r
+smoke_f_test &lt;- fisher.test(smoke_dat)
+smoke_f_test
+```
+
+```
+## 
+## 	Fisher's Exact Test for Count Data
+## 
+## data:  smoke_dat
+## p-value = 1
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##   0.1604502 14.1407064
+## sample estimates:
+## odds ratio 
+##   1.466251
+```
+
+---
+# Next step with Fisher exact test
+
+- There are two categorical variables with binary outcome: 1. treatments (treated and nontreated) and 2. treatment outcomes (cured and noncured). Association between treatments and treatment outcomes?
+
+--
+
+
+```r
+# create a dataframe
+cured_treatment &lt;- data.frame("cured" = c(30, 5), "noncured" = c(5, 5), 
+                 row.names = c("treated", "nontreated"))
+cured_treatment
+```
+
+```
+##            cured noncured
+## treated       30        5
+## nontreated     5        5
+```
+
+---
+# Visualize the data set with mosaicplot
+
+
+```r
+mosaicplot(cured_treatment, color = TRUE)
+```
+
+![](ChiSquare_07032022_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+# Perform fisher's exact test
+
+
+```r
+fisher.test(cured_treatment)
+```
+
+```
+## 
+## 	Fisher's Exact Test for Count Data
+## 
+## data:  cured_treatment
+## p-value = 0.02934
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##   0.9470683 37.0346931
+## sample estimates:
+## odds ratio 
+##   5.691738
+```
+
+
+---
+# Odds ratio
+
+- p-value = 0.02934 - Fischer exact test is significant and we reject the null hypothesis (p&lt;0.05)
+
+--
+
+- Odds ratio (OR) is 5.69. This value indicates that the odds of getting cured while on treatment is 5.69 times that of not getting treatment.
+
+--
+
+- the person getting treatment is more likely get cured than the person not getting treatment.
+
+---
+# If we have 3x2 or 2x3 or other design?
+
+- Suppose, there are three drug treatments (drug A, drug B, and drug C) with the outcome of a cured and not cured. In that research problem we have 3x2 contingency table.
+
+--
+
+
+```r
+# create a dataframe
+cured_drugs &lt;- data.frame("cured" = c(20, 30, 25), "not cured" = c(5, 5, 20), 
+                    row.names = c("drug A", "drug B", "drug C"))
+cured_drugs
+```
+
+```
+##        cured not.cured
+## drug A    20         5
+## drug B    30         5
+## drug C    25        20
+```
+
+---
+# Fisher test and post hoc
+
+
+```r
+fisher.test(cured_drugs)
+```
+
+```
+## 
+## 	Fisher's Exact Test for Count Data
+## 
+## data:  cured_drugs
+## p-value = 0.008503
+## alternative hypothesis: two.sided
+```
+
+--
+
+- p value obtained from Fisher's exact test is significant (p&lt;0.01). We conclude that there is a significant association between treatments with different drugs and cured outcome.
+
+--
+
+- What we do not know?
+
+--
+
+- we do not know which drug and disease/cured outcome? 
+
+--
+
+- we must conduct post-hoc test to analyze each combination with multiple hypothesis testing
+
+---
+# Post-hoc test - multiple hypothesis testing
+
+- Benjamini-Hochberg FDR method 
+
+--
+
+
+```r
+library(rstatix)
+pairwise_fisher_test(as.matrix(cured_drugs), p.adjust.method = "fdr")
+```
+
+---
+# Results from previous post-hoc test
+
+
+```
+## Warning: replacing previous import 'lifecycle::last_warnings' by
+## 'rlang::last_warnings' when loading 'pillar'
+```
+
+```
+## Warning: replacing previous import 'lifecycle::last_warnings' by
+## 'rlang::last_warnings' when loading 'tibble'
+```
+
+```
+## 
+## Attaching package: 'rstatix'
+```
+
+```
+## The following object is masked from 'package:stats':
+## 
+##     filter
+```
+
+```
+## # A tibble: 3 × 6
+##   group1 group2     n       p  p.adj p.adj.signif
+## * &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;       
+## 1 drug A drug B    60 0.728   0.728  ns          
+## 2 drug A drug C    70 0.0673  0.101  ns          
+## 3 drug B drug C    80 0.00682 0.0205 *
+```
+
+
+---
+# McNemar test 
+
+- The McNemar test is used to examine paired dichotomous data. 
+
+--
+
+- The McNemar test also known in literature and research design as the paired or matched chi-square that provides a way of testing the hypotheses in such designs.
+
+--
+
+- If your data are not dichotomous and you have more than two categories in your nominal variable an extension of the McNemar’s test called the McNemar-Bowker test. 
+
+--
+
+- Example: compare the symptomatology pretreatment and post-treatment in sleep disturbance pre-treatment .... post-treatment (Experimental designs exist for observing categorical outcomes more than once in the same patient)
+
+---
+# Appropriate data, hypothesis
+
+- Two nominal variables with two or more levels each, and each with the same levels.
+
+--
+
+- Observations are paired or matched between the two variables.
+
+--
+
+- Null hypothesis:  The contingency table is symmetric.  That is, the probability of cell [i, j] is equal to the probability of cell [j, i].
+
+--
+
+- Alternative hypothesis (two-sided): The contingency table is not symmetric.
+
+--
+
+- McNemar’s test may not be reliable if there are low counts in the “discordant” cells.  Authors recommend that these cells to sum to at least 5 or 10 or 25.
+
+---
+# McNemar contigency table
+
+The basic McNemar test applies to 2×2 tables.
+
+--
+
+
+|   | -      | +      |       |
+|---|--------|:------:|------:|
+|-  | a      | b      | a + b |
+|+  | c      | d      | c + d |
+|   | a + c  | b + d  | Total |
+
+--
+
+Marginal homogeneity implies that row totals are equal to the corresponding column totals... that means...
+
+-- 
+
+(a + b) = (a + c)
+(c + d) = (b + d)
+
+--
+
+Since the a and the d on both sides of the equations cancel, this implies b = c; this is the basis of the McNemar test.
+The McNemar statistic is calculated as chi-square with df = 1.
+
+\begin{equation}
+Q=\frac{(b - c)^2}{b + c}
+(\#eq:mcnemar)
+\end{equation}
+
+---
+# McNemar - example
+
+- Treatment and testing on the same sample. 
+
+--
+
+- Research design: test on individuals **before** and test on individuals **after** treatment (medical treatment, drugs...)
+
+--
+
+- Output: Positive / Negative
+
+---
+
+
+```r
+treat_test &lt;- matrix(c(8, 3, 17, 2), nrow = 2,
+    dimnames = list("after" = c("Negative", "Positive"),
+                    "before" = c("Negative", "Positive")))
+treat_test
+```
+
+```
+##           before
+## after      Negative Positive
+##   Negative        8       17
+##   Positive        3        2
+```
+
+
+---
+
+
+```r
+mcnemar_test(treat_test)
+```
+
+```
+## # A tibble: 1 × 6
+##       n statistic    df       p p.signif method      
+## * &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;       
+## 1    30      8.45     1 0.00365 **       McNemar test
+```
+
+
+---
+# Test your knowledge
+
+We select a random sample of 100 students at University of Split with grades of statistical courses, and try to find out are that distribution statistically different from a) random distribution b) hypotheticaly normal distribution?  
+There were 20 students that did not pass the test, 30 students with grade 2, 20 students with grade 3, 20 students with grade 4 and 10 students with grade 5. 
+
+--
+
+Suppose we have a random sample of 20 students who takes two tests. 10 students pass both tests, 5 students fail both tests, 3 students pass first but not second test, and 2 students failed on first but pass the second. Are there any significant relationships between results on those two tests?
+
+---
+# References
+
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

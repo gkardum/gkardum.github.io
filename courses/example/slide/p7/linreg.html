@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Regression analysis - linear regression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Goran Kardum" />
+    <meta name="date" content="2022-05-02" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link rel="stylesheet" href="mckpam.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Regression analysis - linear regression
+## ⚔<br/>with xaringan
+### Goran Kardum
+### Department of Psychology
+### 2022-05-02
+
+---
+
+
+
+```
+## Loading required namespace: bibtex
+```
+
+
+---
+
+How to predict value between variables in the research?
+
+---
+# Regression analysis
+
+- any of several statistical techniques that are used to describe, explain, or predict (or all three) the variance of an outcome or dependent variable using scores on one or more predictor or independent variables (APA dictionary, 2022). 
+
+--
+
+- Regression analysis is a subset of the general linear model (GLM). It yields a regression equation as well as an index of the relationship between the dependent and independent variables (APA dictionary, 2022). 
+
+--
+
+- For example, a regression analysis could show the extent to which 1st-year grades in college (outcome) are predicted by such factors as standardized test scores, courses taken in high school, letters of recommendation, and particular extracurricular activities (APA dictionary, 2022).
+
+
+
+---
+## Types of regression analysis
+
+- Linear regression 
+
+-- 
+
+- Logistic regression
+
+--
+
+- Multinomial Logistic Regression
+
+--
+
+- Ordinal Logistic Regression
+
+---
+## Types of regression analysis
+
+- Simple and Multiple regression analysis
+
+--
+
+- Linear and non-linear regression analysis
+
+--
+
+- Hierarchical regression (compare the two models in hypothesis testing)
+
+---
+## Linear Regression
+
+- Linear Regression is one of the most widely used regression techniques to model the relationship between two variables. 
+
+--
+
+- analysis of the relationship between interval scale predictors and interval scale outcomes
+
+--
+
+- It uses a linear relationship to model the regression line. There are 2 variables used in the linear relationship equation i.e., predictor variable and response variable.
+
+--
+
+- The regression line created using linear calculation behind that a straight line. The response variable is derived from predictor variables. Predictor variables are estimated using some research design and experiments.
+
+---
+## y = ax + b
+
+y is the response variable (dependent variable, criteria), 
+
+--
+
+x is the predictor variable (independent variable), 
+
+--
+
+a - represents the slope of the line and that value determines how much the variable Y will change when X changes by one unit.
+
+--
+
+b - represents the y intercept of the line and that value identifies the value of Y when X is zero. b=r*sy/sx. This is not an independent variable but rather our estimate of the dependent variable when all predictors in the model are set to 0.
+
+---
+## Regression line 
+
+![Regression line](pic/reg_line_1.png)
+---
+# Residuals
+
+- residuals = actual y - predicted y
+
+--
+
+- The sum and mean of residuals is always equal to zero. Why? Because the regression line is in the middle, optimally going through the regression cloud 
+
+![Residuals](pic/residuals.png)
+---
+## The best vs not the best fitting regression line (Navarro, 2019)
+
+![The best vs not the best fitting line](pic/bestfitting.png)
+
+---
+## Regression analysis steps
+
+1. What the author of regression analysis is trying to do? Knowing what the variables are and how they are distributed have great implications for how reading the regression analysis. Descriptive statistics and plotting the data must be done before RA! Try to check aim of the study, research design and of course descriptive statistics with plotting.
+
+--
+
+2. Remove outliers because that allows you to see how robust your model is: if the error for the outliers is low, then it’s a win for the model; if the error is still high, then they are still outliers.
+
+--
+
+3. Remove all NA values of the dependent variable: with function drop_na() in tidyverse.
+
+--
+
+4. normalize the data - that is the best way to compare coefficients of independent variables. If not - coefficients ranging widely
+
+--
+
+5. Understanding and interpretation the regression table values
+
+--
+
+5. p-value significance is an indicator of certainty. If a coefficient is high and if it is not statistically significant - problem for model interpretation. 
+
+---
+## Assumptions of regression
+
+- Normality
+
+--
+
+- Linearity
+
+--
+
+- Homogeneity of variance
+
+--
+
+- Uncorrelated predictors
+
+--
+
+- Residuals are independent of each other
+
+--
+
+- No bad outliers
+
+---
+## R model syntax
+
+- y ~ x main effect of x on y, y predicted by x
+
+--
+
+- y ~ x + z main effects of x and z on y, y predicted by both x and z
+
+--
+
+- y ~ x:z interaction of x and z on y, y predicted by the interaction of x and z
+
+--
+
+- y ~ x + z + x:z main and interaction effects of x and z on y
+
+--
+
+- next slide: simple example in R
+
+---
+
+
+```r
+library(car)
+```
+
+```
+## Loading required package: carData
+```
+
+```r
+lm_car &lt;- lm(dist ~ speed, data=cars)
+summary(lm_car)
+```
+
+```
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.069  -9.525  -2.272   9.215  43.201 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+## speed         3.9324     0.4155   9.464 1.49e-12 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 15.38 on 48 degrees of freedom
+## Multiple R-squared:  0.6511,	Adjusted R-squared:  0.6438 
+## F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12
+```
+
+
+---
+## Read regression analysis output
+
+- Estimate value: regression coefficient provides the expected change in the dependent variable for a one-unit increase in the independent variable. It could be positive or negative (As the independent variable increases, the dependent variable decreases).
+
+--
+
+- Standard error: For each independent variable, we expect to be wrong in our predictions and our estimate of the standard deviation of the coefficient.
+
+---
+## Coefficient of determination
+
+- proportion of the variance in the outcome variable that can be accounted for by the predictor
+
+--
+
+- R squared = 1 - SSres/SStot
+
+--
+
+- Total sum of squares and sum of squares of residuals
+
+---
+# References
+
+- psych package (http://personality-project.org/r/psych/)
+
+--
+
+- CRAN Task View: Teaching Statistics (https://cran.r-project.org/web/views/TeachingStatistics.html)
+
+--
+
+- Barret Schloerke, JJ Allaire and Barbara Borges (2020). learnr: Interactive Tutorials for R.
+  R package version 0.10.1. https://CRAN.R-project.org/package=learnr
+  
+--
+
+- Navarro, D. (2019). Learning statistics with R: A tutorial for psychology students and other beginners. University of New South Wales: Australia.
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

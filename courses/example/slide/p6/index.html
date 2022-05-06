@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Correlation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Goran Kardum" />
+    <meta name="date" content="2022-04-01" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link rel="stylesheet" href="mckpam.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Correlation
+## ⚔<br/>with xaringan
+### Goran Kardum
+### Department of Psychology
+### 2022-04-01
+
+---
+
+
+
+```
+## Loading required namespace: bibtex
+```
+
+
+---
+
+How to describe the relationships between variables in the data?
+
+---
+# Correlation - introduction
+
+- Sir Francis Galton a cousin of Charles Darwin pioneered correlation: he studied medicine, he explored Africa, he published in psychology and anthropology, he developed graphic techniques to map the weather and understand heredity (Curran-Evverett, 2010).
+
+--
+
+- Karl Pearson (1857-1936), Galton's colleague and friend pursued the refinement of correlation with such vigor that the statistic r, a statistic Galton called the index of co-relation and Pearson called the Galton coefficient of reversion, is known today as Pearson's r Curran-Evverett, 2010).
+
+---
+# Correlation vs regression
+
+- Regression is primarily used to create a models that predict dependent variable values (criteria variable) - Y from a set of independent variables / predictor variables - Xi 
+
+-- 
+
+- Regression mainly focus on affection (x1, x2, ... to y), x and y cannot be interchanged, data analysis focused on regression line and impact (weight) of each predictor
+
+--
+
+- Correlation is primarily used to explore and summarize the direction and strength of the relationships between two variables 
+
+--
+
+- Correlation mainly focuses on relationship, x and y could be interchanged, each subject could be analysed in signle point
+
+--
+
+- Regression analysis and discussion based on model for explanation when we describe and quantify the relationship between the outcome variable y and a set of explanatory variables x.
+
+---
+# A correlation coefficient
+
+- r=-1 indicates a perfect negative relationship between x and y: As one variable increases, the value of the other variable tends to go down, following a straight line.
+
+--
+
+- r=0 indicates no relationship between x and y: The values of both variables go up/down independently or random of each other.
+
+--
+
+- r=+1 indicates a perfect positive relationship between x and y: As the value of the variable x goes up, the value of the variable y tends to go up in a linear shape.
+
+---
+# Pearson correlation
+
+- The most commonly used type of correlation
+
+--
+
+- Karl Pearson in the beginning of 20th century
+
+--
+
+- Pearson's r measures the linear relationship between two variables
+
+--
+
+![Comparison of means](pic/pearson.png)
+---
+# Regression line 
+
+![Regression line](pic/reg_line_1.png)
+
+
+---
+# Pearson correlation assumptions
+
+
+The two variables are normally distributed. We can test this assumption using a statistical test (Shapiro-Wilk), by histogram or QQ plot
+
+--
+
+The relationship between the two variables is linear. If this relationship is found to be curved, etc. we need to use another correlation coefficient and test that. We can test this assumption by examining the scatterplot between the two variables x and y.
+
+--
+
+Sample size N&gt;30
+
+---
+# p-value, C.I. and N for correlation coefficient
+
+- C.I. for correlation coefficient is a range of values that is likely to contain a population correlation coefficient with a certain / calculated level of confidence.
+
+--
+
+- ci_cor() This function calculates confidence intervals for a population correlation coefficient. For Pearson correlation, "normal" confidence intervals are available (by stats::cor.test). Also bootstrap confidence intervals are supported and are the only option for rank correlations.
+
+--
+
+- 1. Perform Fisher transformation, 2. Find log upper and lower bounds, 3. Calculate confidence interval
+
+---
+# Example in R
+
+
+```r
+cor.test(mtcars$wt, mtcars$mpg, method = "pearson", conf.level = 0.9)
+```
+
+```
+## 
+## 	Pearson's product-moment correlation
+## 
+## data:  mtcars$wt and mtcars$mpg
+## t = -9.559, df = 30, p-value = 1.294e-10
+## alternative hypothesis: true correlation is not equal to 0
+## 90 percent confidence interval:
+##  -0.9259151 -0.7690872
+## sample estimates:
+##        cor 
+## -0.8676594
+```
+
+
+
+---
+# Hypothesis testing of correlation coefficient
+
+- cor.test() function
+
+--
+
+- Ho (meaning that there is no linear relationship between the two variables)
+
+--
+
+- Ha - (meaning that there is a linear relationship between the two variables)
+
+--
+
+- Independence of the data
+
+--
+
+- For small sample sizes (usually n&lt;30), the two variables should be a normal distribution (test for normality of distribution)
+
+---
+# Rough guide for interpretation of correlation coefficient (Navarro, 2019)
+
+![Comparison of means](pic/cor_1.png)
+---
+# Real life and correlation
+
+- In real life and psychology research you could not see correlations of 1 (r=1).
+
+---
+
+
+```
+## Warning: replacing previous import 'lifecycle::last_warnings' by
+## 'rlang::last_warnings' when loading 'tibble'
+```
+
+```
+## Warning: replacing previous import 'lifecycle::last_warnings' by
+## 'rlang::last_warnings' when loading 'pillar'
+```
+
+![](Correlations_14032022_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplot - regression line
+
+
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+![](Correlations_14032022_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplot in matrix
+
+![](Correlations_14032022_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+# Scatterplot with line for publication
+
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+![](Correlations_14032022_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+
+---
+# Homoscedasticity
+
+- **Homoscedasticity ** (homogeneity of variances) is an assumption of equal or similar variances in different groups being compared or equal variability across regression line. 
+
+-- 
+
+- This is an important assumption of parametric statistical tests. Parametric tests are sensitive to any dissimilarities.
+
+--
+
+- The points must be about the same distance from the line (homoscedasticity)
+
+--
+
+- **Heteroscedasticity** (“different scatter”) - points are at different distance between upper and lower side of line or at widely varying distances
+
+---
+# Homoscedasticity vs. Heteroscedasticity
+
+.pull-left[
+![Homosced](pic/homo_1.png)
+]
+
+.pull-right[
+![Heterosced](pic/hetero.png)
+]
+
+---
+# Residuals
+
+- residuals = actual y - predicted y
+
+--
+
+- The sum and mean of residuals is always equal to zero. Why? Because the regression line is in the middle, optimally going through the regression cloud 
+
+![Residuals](pic/residuals.png)
+
+
+
+---
+# Always graph your raw data
+
+- That is very important because you could make very strange conclusion! That is also psychological or methodological bias!
+
+--
+
+
+Table: Anscombe data file (Anscombe, 1973)
+
+| x1| x2| x3| x4|   y1|   y2|    y3|
+|--:|--:|--:|--:|----:|----:|-----:|
+| 10| 10| 10|  8| 8.04| 9.14|  7.46|
+|  8|  8|  8|  8| 6.95| 8.14|  6.77|
+| 13| 13| 13|  8| 7.58| 8.74| 12.74|
+|  9|  9|  9|  8| 8.81| 8.77|  7.11|
+| 11| 11| 11|  8| 8.33| 9.26|  7.81|
+| 14| 14| 14|  8| 9.96| 8.10|  8.84|
+
+---
+# Why?
+
+- The value of correlation coefficient is not enough!
+
+--
+
+
+```r
+cor(anscombe$x1, anscombe$y1)
+```
+
+```
+## [1] 0.8164205
+```
+
+```r
+cor(anscombe$x2, anscombe$y2)
+```
+
+```
+## [1] 0.8162365
+```
+
+--
+
+- Mean and standard deviations for all X variables are almost identical, as are those for the Y variables
+
+---
+
+
+
+```
+## 
+## Attaching package: 'psych'
+```
+
+```
+## The following objects are masked from 'package:ggplot2':
+## 
+##     %+%, alpha
+```
+
+
+
+|   | vars|  n|     mean|       sd| median|  trimmed|      mad|  min|   max| range|       skew|   kurtosis|        se|
+|:--|----:|--:|--------:|--------:|------:|--------:|--------:|----:|-----:|-----:|----------:|----------:|---------:|
+|x1 |    1| 11| 9.000000| 3.316625|   9.00| 9.000000| 4.447800| 4.00| 14.00| 10.00|  0.0000000| -1.5289256| 1.0000000|
+|x2 |    2| 11| 9.000000| 3.316625|   9.00| 9.000000| 4.447800| 4.00| 14.00| 10.00|  0.0000000| -1.5289256| 1.0000000|
+|x3 |    3| 11| 9.000000| 3.316625|   9.00| 9.000000| 4.447800| 4.00| 14.00| 10.00|  0.0000000| -1.5289256| 1.0000000|
+|x4 |    4| 11| 9.000000| 3.316625|   8.00| 8.000000| 0.000000| 8.00| 19.00| 11.00|  2.4669110|  4.5206612| 1.0000000|
+|y1 |    5| 11| 7.500909| 2.031568|   7.58| 7.490000| 1.823598| 4.26| 10.84|  6.58| -0.0483735| -1.1991228| 0.6125408|
+|y2 |    6| 11| 7.500909| 2.031657|   8.14| 7.794444| 1.467774| 3.10|  9.26|  6.16| -0.9786929| -0.5143191| 0.6125676|
+|y3 |    7| 11| 7.500000| 2.030424|   7.11| 7.152222| 1.527078| 5.39| 12.74|  7.35|  1.3801204|  1.2400439| 0.6121958|
+|y4 |    8| 11| 7.500909| 2.030578|   7.04| 7.195556| 1.897728| 5.25| 12.50|  7.25|  1.1207739|  0.6287512| 0.6122425|
+
+---
+# Anscombe quartet
+
+![](Correlations_14032022_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+---
+# Anscombe quartet (Anscombe, 1973)
+
+- Demonstrated importance of visualization
+
+--
+
+- Visualization also provides the context necessary to make better choices interpretation
+
+--
+
+- To be! more careful when fitting models 
+
+
+---
+# Addition information about relationship
+
+- most important in psychological research: correction for attenuation
+
+--
+
+- Correction for attenuation (CA) allows researchers to estimate the relationship between two constructs as if they were measured perfectly reliably and free from random errors that occur in all observed measures. 
+
+--
+
+- All research seeks to estimate the true relationship among constructs; because all measures of a construct contain random measurement error,
+
+--
+
+- the CA is especially important in order to estimate the relationships among constructs free from the effects of this error. 
+
+--
+
+- correction for attenuation gives a smaller r.
+
+
+
+---
+# Correlation coefficient
+
+- Pearson linear correlation
+
+--
+
+- Spearman's rank correlations
+
+--
+
+- Kendall tau coefficient
+
+--
+
+- Eta coefficient
+
+---
+# Apa tables - correlation table
+
+
+```
+## 
+## 
+## Means, standard deviations, and correlations with confidence intervals
+##  
+## 
+##   Variable      M     SD    1           2           3           4          
+##   1. rating     64.63 12.17                                                
+##                                                                            
+##   2. complaints 66.60 13.31 .83**                                          
+##                             [.66, .91]                                     
+##                                                                            
+##   3. privileges 53.13 12.24 .43*        .56**                              
+##                             [.08, .68]  [.25, .76]                         
+##                                                                            
+##   4. learning   56.37 11.74 .62**       .60**       .49**                  
+##                             [.34, .80]  [.30, .79]  [.16, .72]             
+##                                                                            
+##   5. raises     64.63 10.40 .59**       .67**       .45*        .64**      
+##                             [.29, .78]  [.41, .83]  [.10, .69]  [.36, .81] 
+##                                                                            
+##   6. critical   74.77 9.89  .16         .19         .15         .12        
+##                             [-.22, .49] [-.19, .51] [-.22, .48] [-.25, .46]
+##                                                                            
+##   7. advance    42.93 10.29 .16         .22         .34         .53**      
+##                             [-.22, .49] [-.15, .54] [-.02, .63] [.21, .75] 
+##                                                                            
+##   5          6          
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##   .38*                  
+##   [.02, .65]            
+##                         
+##   .57**      .28        
+##   [.27, .77] [-.09, .58]
+##                         
+## 
+## Note. M and SD are used to represent mean and standard deviation, respectively.
+## Values in square brackets indicate the 95% confidence interval.
+## The confidence interval is a plausible range of population correlations 
+## that could have caused the sample correlation (Cumming, 2014).
+##  * indicates p &lt; .05. ** indicates p &lt; .01.
+## 
+```
+
+
+
+---
+# References
+
+- psych package (http://personality-project.org/r/psych/)
+
+--
+
+- CRAN Task View: Teaching Statistics (https://cran.r-project.org/web/views/TeachingStatistics.html)
+
+--
+
+- Barret Schloerke, JJ Allaire and Barbara Borges (2020). learnr: Interactive Tutorials for R.
+  R package version 0.10.1. https://CRAN.R-project.org/package=learnr
+  
+--
+
+- Navarro, D. (2019). Learning statistics with R: A tutorial for psychology students and other beginners. University of New South Wales: Australia.
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
