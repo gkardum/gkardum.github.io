@@ -1,0 +1,311 @@
+---
+title: "Introduction to History of psychology"
+author: "Goran Kardum"
+format: 
+  revealjs:
+    theme: serif
+editor: visual
+bibliography: introhist.bib
+csl: apa.csl
+---
+
+## History of Psychology
+
+::: incremental
+The story of psychology begins in ancient times. 
+
+- As a self-conscious formal discipline, psychology is little more than a century old 
+
+- But the subject matter captured the human imagination long before psychology became a science.
+:::
+
+## Lectures
+
+::: incremental
+- Antiquity
+
+- Middle ages and the scholasticism
+
+- Modern age
+
+- Experimental age
+
+- Development of different schools of psychology
+
+- The world of variables - psychology meta-language
+
+- Clinical psychology and the deviations in the behaviour
+:::
+
+
+## Roots of Psychology
+
+::: incremental
+
+- Roots of Psychology from the context of Philosophy: Greek Philosophy, Scholasticims, Renaissance, Enlightenment to Romanticism (... to the 1/2 of 19. century)
+
+- Roots of Psychology in Physiology and Natural Science (19. and 20. century): Physiology roots, Psychophysics, Evolution
+
+- Roots of major 20th Century Schools of Psychology
+:::
+
+## Interesting, intriguing details of individual psychologists (Greenwood, )
+
+::: incremental
+- Aristotle spent his honeymoon collecting biological specimens
+
+- Descartes’ skull, of Dr. “Monsterwork” and his lying machine
+
+- John B. Watson’s measurement of the female orgasm (the real reason he was fired from Johns Hopkins University).
+
+- Some of them deal with parapsychology or psychic experience/experiments: Jung, Ramiro Bujas 
+:::
+
+## Why History of Psychology?
+
+::: incremental
+
+- History as a Key to understanding the **Future** 
+
+- History offers patterns that, when properly viewed, may prove consequential to our understanding and possible control of the present and the future. 
+
+- Psychologists who appreciate their history may be in a better position to understand the discipline while anticipating future trends.)
+
+:::
+
+
+## Why History of Psychology?
+
+::: incremental
+- history as a Way to Enrich the **Present**
+
+- We live in a world of spatial, cultural, and temporal dimensions! That is present time...
+
+- Unfortunately, we can be just as narrow with respect to our time frame as we are with our knowledge of the physical world and other cultures.
+
+- Imagine how it would restrict your view of yourself if you only had memories about the last few years of your life.
+:::
+
+
+## Why History of Psychology?
+
+::: incremental
+- History as a Contribution to **Liberal Education**
+
+- Particularly given the increasing specialization in psychology, history can serve to provide context and a broader perspective within psychology (Benjamin & Baker, 2009). 
+
+- Knowledge of the history of a discipline accentuates the understanding of influences, developments, and relations and contributes to a more informed and integrated perspective.
+:::
+
+
+## Why History of Psychology?
+
+::: incremental
+
+- History teaches **humility**
+
+- A perspective from past knowledge is larger and more informed than perspectives from the present alone.
+
+- History all too often reveals that our innovative idea is a rediscovery of something known long ago.
+:::
+
+
+## Why History of Psychology?
+
+::: incremental
+
+- History teaches a healthy **Skepticism**
+
+- When we have an understanding of history, we are less likely to fall prey to grandiose notions, utopian dreams, and schemes that promise more than they deliver. 
+
+- Psychology has suffered its share of counterfeit ideas, including mesmerism, phrenology, craniometry (the measurement of the skull to determine intelligence and personality), and even some modern therapies. 
+:::
+
+
+## Why History of Psychology?
+
+::: incremental
+
+- History influences human **thought processes**
+
+- Henle (1976) pointed out that most of us find it difficult to see our errors or question our assumptions. 
+
+- She argued that human cognition is often resistant to criticism and prone to a degree of **inertia** or **self preservation**. 
+
+- For her, knowledge of history “gives us distance not only from our immediate objective, but from our own thinking”
+:::
+
+
+## Problems in historiography?
+
+::: incremental
+
+- What makes history? 
+
+- Can history be objective?
+
+- Historiography has multiple meanings: it refers to the writing of history, including techniques and strategies for investigating specific content areas.
+
+- The term also encompasses philosophical questions about history and historical method
+:::
+
+## Historical consciousness
+
+::: incremental
+- Gilderhus (1992) suggests that primitive peoples often lacked historical consciousness because immediate survival was their primary concern. 
+
+- Survival depends on memory along with an awareness of time-based events. This temporal awareness has survival value and contributes to the development of historical consciousness. 
+
+- Knowledge of the historical significance of events benefits both individuals and society.
+
+- Historical consciousness grows from the belief that important events carry real significance in the pursuit of religion, politics, or science (Jesus Christ, Holocaust, 9/11 twins...) 
+:::
+
+## Critical issues in historical studies (King, Viney, Woody, 2016)
+
+::: incremental
+
+- Why study history?
+
+- History as a Key to Understanding the Future
+
+- History as a Way to Enrich the Present
+
+- History as a Contribution to Liberal Education
+
+- History Teaches Humility
+
+- History Teaches a Healthy Skepticism
+
+- History Influences Human Thought Processes
+:::
+
+## Some problems in historiography
+
+::: incremental
+
+- The Development of Historical Consciousness
+
+- What Is History?
+
+- Can History Be Objective?
+
+- The Tyranny of the Present
+
+- Is There a Pattern or Direction in History?
+
+- What Makes History?
+
+- The New History or the Old?
+
+- What Is the History of Psychology, the History Of?
+:::
+
+
+## Can history be objective?
+
+::: incremental
+
+- People have a kind of commonsense faith that historical research whether it deals with religious, political, scientific, or social topics is an **accurate reflection** of the landscape of the past. 
+
+- Historians do not usually make direct observations. 
+
+- The question of objectivity is a critical issue in the philosophy of history. 
+
+- Meaning of objectivity involves the attempt to portray all sides of an issue in a fair man- ner, even if something disagrees with the author’s perspective. 
+:::
+
+
+## the Tyranny of the Present
+
+::: incremental
+- Historians are creatures of the present, but can they free themselves from natural biases im- posed by their world view?
+
+- Must have a well-developed **empathy** for their subject.
+
+- **Presentism** emphasizes the difficulty in divorcing historical facts from current perspectives.
+:::
+
+## Is there a Pattern or direction in history?
+
+::: incremental
+
+- Few hypotheses about the direction of history that are applicable to the history of psychology.
+
+- **Cyclical hypothesis** claims that history repeats itself. Cycles exist in every science, and psychology has seen its share. 
+
+- For example, neuroscientists in the twentieth century wondered if the right and left hemispheres of the brain mediate different emotional and intellectual processes, or do the hemispheres function in a more integrated fashion? Interest in lateralization of function in the cerebral hemispheres is not new.
+:::
+
+
+## Linear progressive hypothesis
+
+::: incremental
+- Each generation builds upon discoveries from previous generations. 
+
+- Each new generation works up from a stronger base, giving rise to growth and progress in human knowledge and among human institutions.
+
+- The German mathematician Gottfried Wilhelm Leibniz was the best-known modern champion of progress theory. 
+:::
+
+## Chaos hypothesis
+
+::: incremental
+
+- It became clear that the entire structure of human achievement could be brought to ruin by a chance technological accident or by the design of political systems deficient in world perspective.
+
+- According to the **chaos hypothesis**, history itself has no overall identifiable and universal meaning.
+
+- For some, psychology is the product of a **chaotic history**. Koch argued that psychology’s history is “a succession of changing doctrines about what to emulate in the natural sciences—especially physics".
+:::
+
+
+## What makes history?
+
+::: incremental
+
+- We turn now to an issue of controversy among historians, one that holds special relevance for students of psychology. 
+
+- The central question here asks whether history is fashioned through the bold actions of exceptional people or the “spirit of the times” in which they live. The **great-person theory** suggests that uncommon individuals tran- scend the conditions of their day and shape history through their courage or wisdom or some other virtue. 
+
+- In contrast, the German terms **Zeitgeist** (spirit of a time) and **Ortgeist** (spirit of a place) argue that prevailing conditions, not individuals, forge historical events. The idea is that no person is greater than his or her time.
+:::
+
+
+
+## Philosophical issues
+
+Epistemology
+
+The term epistemology is derived from the Greek episteme, which means to understand or to know.
+
+::: incremental
+
+- A priori and a priori knowledge
+
+- Nativism versus Empiricism
+
+- Instinct versus Learning
+
+- The Role of Emotions in Knowledge
+
+- Science and Epistemology
+
+- Relevance of Epistemology to Psychology
+:::
+
+## Philosophical issues
+
+::: incremental
+- Problem of Causality
+
+- Free Will and Determinism
+
+- The Mind–Body Problem
+
+- The Problem of Explanation
+
+- Discipline methods
+:::
+
+## References
