@@ -1,0 +1,111 @@
+---
+title: "The Origins of Psychological Thought: antiquity and middle ages"
+author: "Goran Kardum"
+format: 
+  revealjs:
+    theme: serif
+editor: visual
+bibliography: introhist.bib
+csl: apa.csl
+---
+
+## Why
+
+::: incremental
+-   the questions about psychology have been asked thousands of years
+-   Western psychology has its roots among the acient Greeks
+-   early speculations about the nature of natural sciences and human existence
+-   Bias!: cultural and historical (almost methodologys)
+:::
+
+## Pythagoras (570-495)
+
+::: incremental
+-   one of the famous in the Western intellectual tradition [@benjafield2015]
+-   The concept of *harmony*: central in in Pythagorean thought.
+-   The square root of 2 cannot be expressed as a single number; it is an irrational number. (The problem of irrationality)
+-   the *golden section*: a famous proportion in the history of Western thought: a more beautiful proportion in Western society
+-   presented in Dan Brown's novel The *Da Vinci Code*.
+-   Pythagorean cosmology
+:::
+
+## Plato (427-347)
+
+::: incremental
+-   the problem of *irrational* as Pythagoras
+-   belief in ideal forms, perfect forms. The perfect forms vs imperfect
+:::
+
+## Socrates (469-399)
+
+::: incremental
+-   on of the great figures. Important questions: nativism vs empirism
+-   Plato dialog to Socrates (Meno) Can you tell me, Socrates: is virtue something that can be taught? Or does it come by practice? Or is it neither teaching nor practice that gives it to a man but natural aptitude or something else? [@benjafield2015]
+:::
+
+## Socrates (469-399)
+
+::: incremental
+-   State that virtue is so difficult to define
+- innate knowledge
+- Nosce te ipsum
+- rational thinking and introspection
+:::
+
+## Aristotle (384-323)
+
+::: incremental
+- rejected Platos theory of forms
+- _Peri Psyches_ (About psyche)
+- Aristotle argued that form and matter were intertwined. Matter does not exist without form, nor does form exist without matter 
+- Aristotle observed that substances had the potential to take on different forms
+- The distinction between a living and a dead body is that the former has what Baumrin calls "a soul:' [@benjafield2015]
+
+:::
+
+## Aristotle
+
+::: incremental
+- Aristotle was particularly interested in the _syllogism_. 
+- A syllogism consists of two premises and a conclusion, and in a valid syllogism the conclusion follows necessarily from the premises. 
+- Practical syllogism. We use practical syllogisms when _the conclusion drawn from the two premises becomes an action_
+:::
+## Aristotle
+
+::: incremental
+- Contribution to memory and intelligence
+- Aristotle's most important contributions: association are produced by _similarity_, _contrast_, and _contiguity_ 
+- Theory of intelligence: theoretical intelligence, practical intelligence and productive intelligence
+
+:::
+
+## Teleological explanation
+
+::: incremental
+-   Psychology is often defined as the study of behaviour
+- the word "behaviour" is often used in an ambiguous way
+- behaviour refers to the movements that organisms make; other times it refers to their actions
+-   
+:::
+
+## St. Thomas Aquinas (1225-1274)
+
+::: incremental
+- One of Aristotle's most successful interpreters was the great Catholic theologian
+- Aristotle thought was consistent with a Christian world view
+- The idea of a _Scala naturae_
+- "The universe is hierarchically arranged" with beings ordered "according to their internal perfection''
+- It is impossible to overestimate the importance to Western culture of this religious conception of the evolutionary process [@benjafield2015]
+:::
+
+## St. Thomas Aquinas (1225-1274)
+
+Main features and tenets [@benjafield2015]
+
+::: incremental
+- Creatures are ordered hierarchically, reflecting God's purpose.
+- Nothing in this plan is ((capricious" (that is, occurring merely by chance). Rather, everything and everyone has a place in a purposeful order that culminates in God.
+- This view of nature is consistent with what we are told in the Bible, which is an irrefutable source of knowledge.
+:::
+
+## References
